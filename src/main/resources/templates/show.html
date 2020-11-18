@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
 <title>メニュー情報変更</title>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -29,19 +30,21 @@
 						<label class="col-md-2 control-label">コース</label>
 						<div class="col-md-10 form-control-static" th:text="*{course}"></div>
 					</div>
-					<div class="form-group">
+					<div class="form-group ">
 						<label class="col-md-2 control-label">材料</label>
-						<pre><textarea class="form-control" id="textarea" name="recette"
+						<span class="border border-white">
+						<pre><textarea class="form-control bg-white" id="textarea" name="recette"
 							rows="10" cols="40" th:value="*{recette}" readonly>
 										<span th:utext="*{recette}" th:remove="tag"></span>
-										</textarea></pre>
+										</textarea></pre></span>
 					</div>
-					<div class="form-group">
+					<div class="form-group ">
 						<label class="col-md-2 control-label">メモ</label>
-						<pre><textarea class="form-control" id="textarea" name="memo"
+						<span class="border border-white">
+						<pre><textarea class="form-control bg-white" id="textarea" name="memo"
 							rows="10" cols="40" th:value="*{memo}" readonly>
 										<span th:utext="*{memo}" th:remove="tag"></span>
-										</textarea></pre>
+										</textarea></pre></span>
 					</div>
 				</div>
 			</div>

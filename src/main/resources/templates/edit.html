@@ -45,7 +45,7 @@
 								<label class="col-md-3 control-label text-muted">材料</label>
 								<div class="col-md-12">
 									<pre><textarea class="form-control" id="textarea" name="recette"
-										rows="10" cols="40" th:value="*{recette}">
+										rows="10" cols="40" th:value="*{recette}" >
 										<span th:utext="*{recette}" th:remove="tag"></span>
 										</textarea></pre>
 									<div class="text-danger" th:if="${#fields.hasErrors('recette')} "
