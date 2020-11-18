@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<title>メニュー情報変更</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">メニュー管理</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="card card-primary mb-3">
+			<div class="card-header">
+				<h5 class="card-title">メニュー詳細</h5>
+			</div>
+			<div class="card-body">
+				<div th:object="${menu}">
+					<div class="form-group">
+						<label class="col-md-2">タイトル</label>
+						<div class="col-md-10" th:text="*{name}"></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label">コース</label>
+						<div class="col-md-10 form-control-static" th:text="*{course}"></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label">材料</label>
+						<textarea class="form-control" id="textarea" name="recette"
+							rows="10" cols="40" th:value="*{recette}" readonly>
+										<span th:utext="*{recette}" th:remove="tag"></span>
+										</textarea>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label">メモ</label>
+						<textarea class="form-control" id="textarea" name="memo"
+							rows="10" cols="40" th:value="*{memo}" readonly>
+										<span th:utext="*{memo}" th:remove="tag"></span>
+										</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery-3.5.1.min"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
