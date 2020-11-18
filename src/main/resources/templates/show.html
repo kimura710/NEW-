@@ -31,17 +31,17 @@
 					</div>
 					<div class="form-group">
 						<label class="col-md-2 control-label">材料</label>
-						<textarea class="form-control" id="textarea" name="recette"
+						<pre><textarea class="form-control" id="textarea" name="recette"
 							rows="10" cols="40" th:value="*{recette}" readonly>
 										<span th:utext="*{recette}" th:remove="tag"></span>
-										</textarea>
+										</textarea></pre>
 					</div>
 					<div class="form-group">
 						<label class="col-md-2 control-label">メモ</label>
-						<textarea class="form-control" id="textarea" name="memo"
+						<pre><textarea class="form-control" id="textarea" name="memo"
 							rows="10" cols="40" th:value="*{memo}" readonly>
 										<span th:utext="*{memo}" th:remove="tag"></span>
-										</textarea>
+										</textarea></pre>
 					</div>
 				</div>
 			</div>
