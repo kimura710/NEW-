@@ -1,4 +1,4 @@
-package com.example.demo.controllerTest;
+/*package com.example.demo.controllerTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +18,4 @@ public class SecurityControllerTest {
 	
 	
 	
-}
+}*/

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<title>メニュー新規作成</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">レシピ管理</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="card card-primary mb-3">
+			<div class="card-header">
+				<h5 class="card-title">メニュー新規登録</h5>
+			</div>
+			<div class="card-body">
+				<form th:method="post" th:action="@{/menus}" th:object="${menu}">
+					<div class="form-group ">
+						<label class="col-md-2 control-label text-muted">タイトル</label>
+						<div class="col-md-6">
+							<input class="form-control" type="text" name="name"
+								th:value="*{name}">
+							<div class="text-danger" th:if="${#fields.hasErrors('name')}"
+								th:errors="*{name}"></div>
+						</div>
+					</div>
+					<div class="form-group ">
+						<label class="col-md-2 control-label text-muted">コース</label>
+						<div class="col-md-6">
+							<input class="form-control" type="text" name="course"
+								th:value="*{course}">
+							<div class="text-danger" th:if="${#fields.hasErrors('course')}"
+								th:errors="*{course}"></div>
+						</div>
+						
+						<div class="form-group ">
+							<label class="col-md-3 control-label text-muted">材料</label>
+							<div class="col-md-12">
+								<textarea class="form-control" id="textarea" name="recette" rows="10" cols="40"
+									th:value="*{recette}"></textarea>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('recette')} " th:errors="*{recette}">
+								</div>
+							</div>
+							
+							<div class="form-group ">
+								<label class="col-md-3 control-label text-muted">メモ</label>
+								<div class="col-md-12">
+								<textarea class="form-control" id="textarea" name="memo"  rows="10" cols="40"
+										th:value="*{memo}"></textarea>
+									<div class="text-danger" th:if="${#fields.hasErrors('memo')} "
+										th:errors="*{memo}"></div>
+								</div>
+								<div class="form-group">
+									<div class="text-right">
+										<button class="btn btn-primary" type="submit">新規登録</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	<script src="/js/jquery-3.5.1.min"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
