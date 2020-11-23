@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		//認証リクエストの設定
 		   .authorizeRequests()
 		   .antMatchers("/login","/register").permitAll()
+		  // .antMatchers("/admin/**").hasRole(Role.ADMIN.name())
 		   .anyRequest().authenticated()
 		   .and()
 		.formLogin()

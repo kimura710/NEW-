@@ -12,6 +12,8 @@ public class SiteUser {
 	private String password;
 	
 	private String role;
+	private boolean admin;
+	private boolean active = true;
 
 	public Long getId() {
 		return id;
@@ -43,6 +45,22 @@ public class SiteUser {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 }
