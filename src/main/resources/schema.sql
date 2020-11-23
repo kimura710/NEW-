@@ -5,3 +5,8 @@ course varchar(10),
 recette varchar(1000),
 memo varchar(1000)
 );
+create table if not exists user(
+id integer not null primary key,
+userName varchar(20) not null,
+password varchar(255) not null
+);

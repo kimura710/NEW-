@@ -1,8 +1,8 @@
 package com.example.demo.domain;
 
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 public class Menu {
 	@Id
@@ -11,13 +11,13 @@ public class Menu {
 	@NotBlank(message = "タイトルを入力してください")
 	private String name;
 	
-	@Size(max = 10, message = "最大10文字までです")
+	@Max(value = 10, message = "文字数オーバーです")
 	private String course;
 	
-	@Size(max = 1000,message = "文字数オーバーです")
+	@Max(value = 1000,message = "文字数オーバーです")
 	private String recette;
 	
-	@Size(max = 1000,message = "文字数オーバーです")
+	@Max(value = 1000,message = "文字数オーバーです")
 	private String memo;
 
 	public int getId() {
