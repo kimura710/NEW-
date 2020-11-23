@@ -3,13 +3,15 @@ package com.example.demo.domain;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-public class User {
+public class SiteUser {
 	@Id
 	private  Long id;
 	@Size(min = 2,max = 20)
-	private String userName;
+	private String username;
 	@Size(min = 2,max = 255)
 	private String password;
+	
+	private String role;
 
 	public Long getId() {
 		return id;
@@ -19,12 +21,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {
@@ -33,6 +35,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }
