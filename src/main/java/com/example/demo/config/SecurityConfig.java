@@ -6,11 +6,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	private final UserDetailsService userDetailsService;
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
@@ -23,10 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 		//認証リクエストの設定
 		   .authorizeRequests()
-		   .anyRequest()
-		   .authenticated()
+		   .antMatchers("/login","/register").permitAll()
+		   .anyRequest().authenticated()
 		   .and()
-		.formLogin();   
+		.formLogin()
+		   .loginPage("/login")
+		   .defaultSuccessUrl("/")
+		   .and()
+		.logout()
+		   .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)throws Exception{
@@ -35,6 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		    .password(passwordEncoder().encode("password"))
 		    // 権限を設定
 		    .authorities("ROLE_USER");
+		auth.userDetailsService(userDetailsService)
+		    .passwordEncoder(passwordEncoder());
 	}
 
 }
