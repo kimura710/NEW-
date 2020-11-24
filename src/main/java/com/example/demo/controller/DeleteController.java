@@ -19,7 +19,7 @@ public class DeleteController {
 	@PostMapping("/delete/{id}")
 	public String delete(@PathVariable int id,Model model) {
 		service.delete(id);
-		return "redirect:/";
+		return "redirect:/menus/index";
 	}
 
 }

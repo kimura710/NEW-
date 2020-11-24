@@ -22,7 +22,7 @@ public class MenuRepositoryTest {
 	@Test
 	public void 検索＿全件して結果をリストで所得出来る() throws Exception{
 		List<Menu> actual = sut.selectAll();
-		assertThat(actual.size()).isEqualTo(3);
+		assertThat(actual.size()).isEqualTo(2);
 	}
 
 }

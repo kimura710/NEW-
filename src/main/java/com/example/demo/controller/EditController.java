@@ -33,7 +33,7 @@ public class EditController {
 		}else {
 			menu.setId(id);
 			service.update(menu);
-			return "redirect:/";
+			return "redirect:/menus/index";
 		}
 	
 	}

@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.service.MenuService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/menus")
 public class SecurityController {
 	@Autowired
 	private MenuService service;
 	
+
 	
-	@GetMapping("/")
+	
+	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("menus",service.search());
 		return "index";

@@ -10,7 +10,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">レシピ管理</a>
+				<a class="navbar-brand" href="/menus/index">レシピ管理</a>
 
 				<div class="pull-right">
 					<a th:href="@{/logout}">ログアウト</a>
@@ -23,13 +23,13 @@
 		<div class="card card-primary mb-3">
 			<div class="card-header">
 				<h5 class="card-title">
-					メニューリスト<a href="menus/new" class="btn btn-success float-right">新規作成</a>
+					メニューリスト<a href="/menus/new" class="btn btn-success float-right">新規作成</a>
 				</h5>
 			</div>
 			<table class="table table-striped" th:if="${menus.size()}">
 				<thead>
 					<tr>
-						<th style="width: 10%">ID</th>
+						
 						<th style="width: 30%">タイトル</th>
 						<th style="width: 10%">コース</th>
 						<th style="width: 30%"></th>
@@ -37,7 +37,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="menu:${menus}" th:object="${menu}">
-						<td th:text="*{id}"></td>
+						
 						<td th:text="*{name}"></td>
 						<td th:text="*{course}"></td>
 						<td class="float-right">

@@ -29,7 +29,7 @@ public class NewController {
 			return "new";
 		}else {
 			service.save(menu);
-			return "redirect:/";
+			return "redirect:/menus/index";
 		}
 	}
 
