@@ -11,12 +11,12 @@
 <div class="container">
    <p style="text-align: center;">オリジナルログインフォーム</p>
    <form class="form-signin" th:action="@{/login}" method="post">
-        <div th:if="${showErrorMsg}" class="alert alert-danger" role="alert" th:text="${errorMsg}">
-            エラーです！
-        </div>
-        <div th:if="${showLogoutedMsg}" class="alert alert-success" role="alert" th:text="#{demo.login.logouted}">
-            ログアウトしました
-        </div>
+      <div class="alert alert-danger" th:if="${param.error}">
+       <small>ユーザー名またはパスワードが正しくありません</small>
+      </div>
+      <div class="alert alert-success" th:if="${param.logout}">
+       <small>ログアウトしました</small>
+      </div>
 
         <p>
           <input type="text" id="username" name="username" class="form-control" placeholder="ユーザID" required autofocus>
