@@ -16,7 +16,7 @@ public class LoginController {
 	public String show(Authentication loginUser,Model model) {
 		model.addAttribute("username",loginUser.getName());
 		model.addAttribute("role",loginUser.getAuthorities());
-		return "/hello";
+		return "/home";
 	}
 
 }
