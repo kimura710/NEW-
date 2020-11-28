@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,8 +8,11 @@
 <title>ログイン成功</title>
 </head>
 <body>
+<br>
+<br>
+<div class="container">
 <div class="text-center">
-	<h6 th:inline="text">ログインして頂きありがとうございます。</h6><br>
+	<h6 th:inline="text"><span sec:authentication="name"></span>さん！ログインして頂きありがとうございます。</h6><br>
 	<h6 th:inline="text">このサイトは大切にしていた料理のメモ帳を</h6><br>
 	<h6 th:inline="text">紛失してしまった経緯から作り方や分量を</h6><br>
 	<h6 th:inline="text">保存しておけるように作成しました。</h6><br>
@@ -18,7 +22,9 @@
 				<a class="navbar-brand" href="/menus/index">レシピ管理画面へ</a>
 			</div>
 		</div>
+		
 	</form>
+	</div>
 	</div>
 	<script src="/js/jquery-3.5.1.min"></script>
 	<script src="/js/bootstrap.min.js"></script>

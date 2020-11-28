@@ -36,13 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 
 	 // ユーザIDとパスワードを取得するSQL文
 	 private static final String USER_SQL = "SELECT"
-			 +"user_id,"
-			 +"password,"
-			 +"enabled"
-			 +"from"
+			 +" user_id,"
+			 +" password,"
+			 +" enabled"
+			 +" from"
 			 +" m_user"
-			 +"where"
-			 +"user_id=?";
+			 +" where"
+			 +" user_id=?";
 	 
 	 private static final String ROLE_SQL = "SELECT"
 			 + " m_user.user_id,"
@@ -52,8 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			 + " ON"
 			 + " m_user.user_id = user_role.user_id"
 			 + " INNER JOIN m_role AS role"
+			 + " ON"
 			 + " user_role.role_id = role.role_id"
-			 + "WHERE"
+			 + " WHERE"
 			 + " m_user.user_id=?";
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
