@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<title>ユーザー登録</title>
+</head>
+<body>
+	<div class="container">
+		<div class="card card-primary mb-3">
+			<div class="card-header">
+				<h5 class="card-title">新規登録画面</h5>
+				<form th:action="@{/register}" action="/register" method="post">
+					<div th:classappend="${#fields.hasErrors('userId')}? 'has-error'">
+						<label for="userId">ID</label>
+
+						<div>
+							<input id="userId" th:field="*{userId}" name="userId"> <span th:if="${#fields.hasErrors('userId')}" th:errors="*{user}">エラーです！</span>
+						</div>
+					</div>
+					<div th:classappend="${#fields.hassErrors('password')}? 'has-error">
+						<label for="password">パスワード</label>
+						<div>
+							<input id="password" type="password" th:field="*{password}"
+								name="password"> <span
+								th:if="${#fields.hasErrors('password')}" th:errors="*{password}">エラーです！</span>
+						</div>
+					</div>
+					<input type="submit" value="新規登録">
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery-3.5.1.min"></script>
+	<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>
