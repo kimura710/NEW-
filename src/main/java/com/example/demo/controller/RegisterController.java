@@ -21,12 +21,13 @@ public class RegisterController {
 	
 	@GetMapping("/register")
 	public String signup() {
-		return "signup";
+		return "register";
 	}
 	@PostMapping("/register")
 	public String register(@RequestParam("user_id")String user_id,@RequestParam("password")String password) {
 		AppUserDetails user = new AppUserDetails();
-		user.setUserId(user_id);
+		user.setUser_id(user_id);
+		user.setAppUserName(user_id);
 		user.setPassword(passwordEncoder.encode(password));
 		
 		service.registerUser(user);

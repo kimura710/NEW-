@@ -12,20 +12,15 @@
 			<div class="card-header">
 				<h5 class="card-title">新規登録画面</h5>
 				<form th:action="@{/register}" action="/register" method="post">
-					<div th:classappend="${#fields.hasErrors('userId')}? 'has-error'">
-						<label for="userId">ID</label>
-
-						<div>
-							<input id="userId" th:field="*{userId}" name="userId"> <span th:if="${#fields.hasErrors('userId')}" th:errors="*{user}">エラーです！</span>
-						</div>
-					</div>
-					<div th:classappend="${#fields.hassErrors('password')}? 'has-error">
-						<label for="password">パスワード</label>
-						<div>
-							<input id="password" type="password" th:field="*{password}"
-								name="password"> <span
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}">エラーです！</span>
-						</div>
+					<div class="row">
+					 <div class="col-xl-12 form-group">
+					    <label for="user_id">ユーザーID</label>
+					    <input type="text" class="form-control" id="user_id">
+					 </div>
+					 <div class="col-xl-12 form-group">
+					  <label for="password">パスワード</label>
+					  <input type="password" class="form-control" id="password">
+					 </div>
 					</div>
 					<input type="submit" value="新規登録">
 				</form>
