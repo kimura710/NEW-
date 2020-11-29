@@ -87,4 +87,6 @@ public class AppUserDetails implements UserDetails {
 		return this.enabled;
 	}
 
+	
+
 }

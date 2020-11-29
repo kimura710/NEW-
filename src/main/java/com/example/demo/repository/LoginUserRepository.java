@@ -1,14 +1,16 @@
 package com.example.demo.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 
-@Repository
-public class LoginUserRepository {
+import com.example.demo.domain.AppUserDetails;
 
-	@Autowired
-	private JdbcTemplate jdbc;
+@Mapper
+public interface LoginUserRepository {
+
+	@Insert("insert into m_user values(#{user_id},#{password},'2099-12-31 23:59:59',0,true,'tenant','システム管理者','system@xxx.co.jp',true,'2099-12-31 23:59:59')")
+	public int registerUser(AppUserDetails user);
 	
-	private static final String SELECT_USER_SQL = "SELECT * "+" FROM m_user" + "WHERE user_id = ?";
+	@Insert("insert into t_user_role(user_id,role_id) values(#{user_id},'admin')")
+	public int registerUserRole(AppUserDetails user);
 }

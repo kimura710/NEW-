@@ -57,6 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			 + " user_role.role_id = role.role_id"
 			 + " WHERE"
 			 + " m_user.user_id=?";
+	 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
