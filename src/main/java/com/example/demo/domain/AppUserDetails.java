@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class AppUserDetails implements UserDetails {
 	
 	
-	private String user_id; 
+	private String userId; 
 	private String password;
 	private Date passUpdateDate; //パスワード更新日
 	private int loginMissTimes; //ログイン失敗回数
@@ -47,7 +47,7 @@ public class AppUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO 自動生成されたメソッド・スタブ
-		return this.user_id;
+		return this.userId;
 	}
 
 	/*
