@@ -8,9 +8,9 @@ import com.example.demo.domain.AppUserDetails;
 @Mapper
 public interface LoginUserRepository {
 
-	@Insert("insert into m_user(user_id,password) values(#{user_id},#{password})")
-	public void registerUser(AppUserDetails user);
+	@Insert("insert into m_user (user_id,password) values (#{user_id},#{password})")
+	int registerUser(AppUserDetails user);
 	
-	@Insert("insert into t_user_role(user_id) values(#{user_id})")
-	public void registerUserRole(AppUserDetails user);
+	@Insert("insert into t_user_role (user_id) values (#{user_id})")
+	int registerUserRole(AppUserDetails user);
 }

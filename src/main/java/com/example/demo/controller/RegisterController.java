@@ -24,10 +24,10 @@ public class RegisterController {
 		return "register";
 	}
 	@PostMapping("/register")
-	public String register(@RequestParam("userId")String userId,@RequestParam("password")String password) {
+	public String register(@RequestParam(name = "user_id")String user_id,@RequestParam(name = "password")String password) {
 		AppUserDetails user = new AppUserDetails();
-		user.setUserId(userId);
-		user.setAppUserName(userId);
+		user.setUser_id(user_id);
+		user.setAppUserName(user_id);
 		user.setPassword(passwordEncoder.encode(password));
 		
 		service.registerUser(user);

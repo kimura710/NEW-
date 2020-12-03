@@ -15,7 +15,13 @@ public class UserService {
 	
 	@Transactional
 	public void registerUser(AppUserDetails user) {
-		 repository.registerUser(user);
+		int result = 0;
+		result += repository.registerUser(user);
+		System.out.println(result);
+		result += repository.registerUserRole(user);
 		
+		if(result != 2) {
+			throw new RuntimeException();
+		}
 	}
 }

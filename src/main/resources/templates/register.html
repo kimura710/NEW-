@@ -13,13 +13,16 @@
 				<h5 class="card-title">新規登録画面</h5>
 				<form th:action="@{/register}" action="/register" method="post">
 					<div class="row">
-					 <div class="col-xl-12 form-group">
+					 <div class="col-xl-12 form-group" th:classappend="${#fields.hasErrors('user_id')}?'has-error'">
 					    <label for="userId">ユーザーID</label>
-					    <input type="text" class="form-control" id="userId">
+					    <input type="text" class="form-control" id="user_id" name="user_id">
+					    <span class="text-danger" th:if="${#fields.hasErrors('user_id')" th:errors="*{user_id}">IDエラー</span>
 					 </div>
-					 <div class="col-xl-12 form-group">
+					 <div class="col-xl-12 form-group" th:classappend="${#fields.hasErrors('password')}?'has-error'">
 					  <label for="password">パスワード</label>
-					  <input type="password" class="form-control" id="password">
+					  <input type="password" class="form-control" id="password" name="password">
+					  <span class="${#fields.hasErrors('password')}" th:errors="*{password}">passwordエラー</span>
+					  
 					 </div>
 					</div>
 					<input type="submit" value="新規登録">
