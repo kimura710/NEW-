@@ -17,7 +17,7 @@ public class UserService {
 	public void registerUser(AppUserDetails user) {
 		int result = 0;
 		result += repository.registerUser(user);
-		System.out.println(result);
+		
 		result += repository.registerUserRole(user);
 		
 		if(result != 2) {

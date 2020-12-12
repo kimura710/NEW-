@@ -11,7 +11,7 @@ public class Menu {
 	@NotBlank(message = "タイトルを入力してください")
 	private String name;
 	
-	@Size(max = 10, message = "最大10文字までです")
+	@Size(max = 10, message = "文字数オーバーです")
 	private String course;
 	
 	@Size(max = 1000,message = "文字数オーバーです")

@@ -3,6 +3,9 @@ package com.example.demo.domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,7 +21,8 @@ import lombok.NoArgsConstructor;
 @Builder // Builderクラスを自動で作成する
 public class AppUserDetails implements UserDetails {
 	
-	
+	@NotEmpty(message = "入力エラーです")
+	@Min(value = 1)
 	private String user_id; 
 	private String password;
 	private Date passUpdateDate; //パスワード更新日
